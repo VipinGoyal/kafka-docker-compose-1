@@ -43,23 +43,23 @@ bash-4.4#
 Open two such different terminals to use one as consumer and another producer.
 
 
-Producer Side
-In one of the prompts (the one you choose to be producer), enter the following commands:
+## Producer Side
 
-## To create a new topic named test
-bash-4.4# kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic test
- 
-## To start a producer that publishes datastream from standard input to kafka
-bash-4.4# kafka-console-producer.sh --broker-list localhost:9092 --topic test
+In one of the prompts (the one you choose to be producer), enter the following commands:
+ To start a producer that publishes datastream from standard input to kafka using topic mentioned in config
+
+bash-4.4# kafka-console-producer.sh --broker-list localhost:9092 --topic UploadFile
 >
 The producer is now ready to take input from keyboard and publish it.
 
 
 
-Consumer Side
+## Consumer Side
 Move on the to the second terminal connected to your kafka container. The following command starts a consumer which feeds on test topic:
 
-$ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test
+$ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic UploadFile
+
+
 Back to Producer
 You can now type messages in the new prompt and everytime you hit return the new line is printed in the consumer prompt. For example:
 
